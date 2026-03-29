@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEMINI S.R.O</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{--primary:#0b0f1a;--accent:#c9a86a}
+
+body{margin:0;font-family:'Inter',sans-serif;background:#fff;color:#111}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 60px;position:fixed;width:100%;background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);z-index:10}
+
+.logo img{width:35px;opacity:0.7}
+
+.hero{height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(120deg,#0b0f1a,#1f2937);color:#fff;position:relative;overflow:hidden}
+
+.hero::after{
+  content:"";position:absolute;width:100%;height:100%;
+  background:url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity:0.08;pointer-events:none;
+}
+
+.hero-center{text-align:center;animation:fadeUp 1s ease}
+.hero-center img{width:160px;margin-bottom:20px;animation:float 3s ease-in-out infinite}
+
+.hero h1{font-family:'Montserrat',sans-serif;font-size:56px;margin:0}
+.hero p{opacity:0.85;margin-top:10px}
+
+.btn{display:inline-block;margin-top:20px;padding:15px 30px;background:var(--accent);color:#000;border-radius:50px;text-decoration:none;font-weight:600}
+
+section{padding:100px 60px;opacity:0;transform:translateY(40px);transition:0.6s ease}
+section.show{opacity:1;transform:translateY(0)}
+
+h2{font-family:'Montserrat',sans-serif}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+
+.card{padding:30px;border-radius:16px;background:#f9fafb;transition:0.3s}
+.card:hover{transform:translateY(-10px);box-shadow:0 15px 40px rgba(0,0,0,0.1)}
+.card h3{margin-bottom:10px}
+.card p{font-size:14px;color:#555}
+
+.contact-form input, .contact-form textarea{width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd}
+
+footer{background:#0b0f1a;color:#fff;text-align:center;padding:40px}
+
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 20px;border-radius:50px;text-decoration:none}
+
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo"><img src="logo.png"></div>
+</header>
+
+<section class="hero show">
+<div class="hero-center">
+  <img src="logo.png">
+  <h1>LEMINI S.R.O</h1>
+  <p>Stavebné a výškové práce v Bratislave</p>
+  <a href="https://wa.me/421951731603" class="btn">Napísať na WhatsApp</a>
+</div>
+</section>
+
+<section>
+  <h2>Druhy prác</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>🔧 Montáž</h3>
+      <p>Montáž konštrukcií, káblov a technických prvkov rýchlo a presne.</p>
+    </div>
+
+    <div class="card">
+      <h3>🛠 Demontáž</h3>
+      <p>Bezpečné odstránenie starých zariadení a stavebných častí.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧱 Murovanie</h3>
+      <p>Stavba stien a konštrukcií z kvalitných materiálov.</p>
+    </div>
+
+    <div class="card">
+      <h3>🏠 Sadrokartón</h3>
+      <p>Montáž stien, stropov a moderných interiérových riešení.</p>
+    </div>
+
+    <div class="card">
+      <h3>⚡ Elektrika</h3>
+      <p>Elektroinštalácie, káblovanie a rozvody podľa normy.</p>
+    </div>
+
+    <div class="card">
+      <h3>🎨 Maľovanie</h3>
+      <p>Maľovanie interiérov a exteriérov s dôrazom na detail.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧗 Výškové práce</h3>
+      <p>Práce vo výškach pomocou lanovej techniky.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Kde pracujeme</h2>
+  <p>📍 Bratislava a okolie</p>
+</section>
+
+<section>
+  <h2>Nezáväzná žiadosť</h2>
+  <form action="https://formspree.io/f/yourcode" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Meno" required>
+    <input type="tel" name="phone" placeholder="Telefón" required>
+    <textarea name="message" placeholder="Čo potrebujete?" required></textarea>
+    <button type="submit" class="btn">Odoslať</button>
+  </form>
+</section>
+
+<section>
+  <h2>Email</h2>
+  <p>📧 lemini2023@gmail.com</p>
+</section>
+
+<footer>
+  <p>LEMINI S.R.O | Bratislava | +421 951 731 603</p>
+</footer>
+
+<a href="https://wa.me/421951731603" class="whatsapp">WhatsApp</a>
+
+<script>
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      sec.classList.add('show');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
